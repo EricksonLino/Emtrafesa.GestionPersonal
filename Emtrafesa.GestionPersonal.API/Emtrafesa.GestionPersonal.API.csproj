@@ -16,10 +16,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Emtrafesa.GestionPersonal.Application\Emtrafesa.GestionPersonal.Application.csproj" />
   </ItemGroup>
 

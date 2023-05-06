@@ -1,0 +1,25 @@
+﻿using AutoMapper;
+using Emtrafesa.GestionPersonal.Application.Dtos;
+using Emtrafesa.GestionPersonal.Application.Interfaces;
+using Emtrafesa.GestionPersonal.Repository.Interfaces;
+
+namespace Emtrafesa.GestionPersonal.Application.Implementacion
+{
+    public class ChoferApplication : IChoferApplication
+    {
+        private readonly IChoferRepository choferRepository;
+        private readonly IMapper mapper;
+
+        public ChoferApplication(IChoferRepository choferRepository, IMapper mapper)
+        {
+            this.choferRepository = choferRepository;
+            this.mapper = mapper;
+        }
+        public async Task<List<ChoferDto>> ListarChoferes()
+        {
+            var choferes = await choferRepository.ListarChoferes();
+            var choferDto = mapper.Map<List<ChoferDto>>(choferes);
+            return choferDto;
+        }
+    }
+}
