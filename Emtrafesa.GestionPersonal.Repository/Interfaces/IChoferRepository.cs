@@ -12,5 +12,6 @@ namespace Emtrafesa.GestionPersonal.Repository.Interfaces
         Task<List<Chofer>> ListarChoferes();
         Task<Chofer> ObtenerChofer(int id);
         Task InsertarChofer(Chofer chofer); 
+        Task EliminarChofer(Chofer chofer);
     }
 }

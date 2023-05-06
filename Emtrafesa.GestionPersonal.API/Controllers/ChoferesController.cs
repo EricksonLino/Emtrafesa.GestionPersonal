@@ -40,5 +40,12 @@ namespace Emtrafesa.GestionPersonal.API.Controllers
             await choferApplication.InsertarChofer(choferCreacionDto);
             return Ok();
         }
+
+        [HttpDelete("{id}")]
+        public async Task<ActionResult> EliminarChofer([FromRoute]int id)
+        {
+            await choferApplication.EliminarChofer(id);
+            return Ok();
+        }
     }
 }
