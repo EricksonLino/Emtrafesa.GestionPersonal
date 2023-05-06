@@ -36,5 +36,11 @@ namespace Emtrafesa.GestionPersonal.Repository.Implementacion
             applicationDbContext.Choferes.Remove(chofer);
             await applicationDbContext.SaveChangesAsync();
         }
+
+        public async Task ActualizarChofer(Chofer chofer)
+        {
+            applicationDbContext.Choferes.Update(chofer);
+            await applicationDbContext.SaveChangesAsync();
+        }
     }
 }

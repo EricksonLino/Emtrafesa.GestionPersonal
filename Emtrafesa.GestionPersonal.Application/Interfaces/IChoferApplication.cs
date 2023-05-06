@@ -8,6 +8,7 @@ namespace Emtrafesa.GestionPersonal.Application.Interfaces
         Task<ChoferDetalleDto> ObtenerChofer(int id);
         Task InsertarChofer(ChoferCreacionDto choferCreacionDto);
         Task EliminarChofer(int id);
+        Task ActualizarChofer(int id, ChoferActualizarDto choferActualizarDto);
 
     }
 }

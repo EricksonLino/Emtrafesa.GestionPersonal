@@ -24,7 +24,7 @@ namespace Emtrafesa.GestionPersonal.API.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<ChoferDetalleDto>> ObtenerChofer(int id)
+        public async Task<ActionResult<ChoferDetalleDto>> ObtenerChofer([FromRoute] int id)
         {
             var chofer = await choferApplication.ObtenerChofer(id);
             if (chofer == null)
@@ -47,5 +47,13 @@ namespace Emtrafesa.GestionPersonal.API.Controllers
             await choferApplication.EliminarChofer(id);
             return Ok();
         }
+
+        [HttpPut("{id}")]
+        public async Task<ActionResult> ActualizarChofer([FromRoute] int id, [FromBody] ChoferActualizarDto choferActualizarDto)
+        {
+            await choferApplication.ActualizarChofer(id, choferActualizarDto);
+            return Ok();
+        }
+
     }
 }

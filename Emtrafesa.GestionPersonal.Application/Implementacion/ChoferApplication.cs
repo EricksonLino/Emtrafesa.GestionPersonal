@@ -42,5 +42,12 @@ namespace Emtrafesa.GestionPersonal.Application.Implementacion
             var chofer = await choferRepository.ObtenerChofer(id);
             await choferRepository.EliminarChofer(chofer);
         }
+
+        public async Task ActualizarChofer(int id, ChoferActualizarDto choferActualizarDto)
+        {
+            var chofer = await choferRepository.ObtenerChofer(id);
+            mapper.Map(choferActualizarDto, chofer);
+            await choferRepository.ActualizarChofer(chofer);
+        }
     }
 }
