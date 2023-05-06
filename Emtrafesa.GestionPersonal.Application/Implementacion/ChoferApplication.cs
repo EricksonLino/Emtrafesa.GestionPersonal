@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Emtrafesa.GestionPersonal.Application.Dtos;
 using Emtrafesa.GestionPersonal.Application.Interfaces;
+using Emtrafesa.GestionPersonal.Entity;
 using Emtrafesa.GestionPersonal.Repository.Interfaces;
 
 namespace Emtrafesa.GestionPersonal.Application.Implementacion
@@ -15,6 +16,7 @@ namespace Emtrafesa.GestionPersonal.Application.Implementacion
             this.choferRepository = choferRepository;
             this.mapper = mapper;
         }
+
         public async Task<List<ChoferDto>> ListarChoferes()
         {
             var choferes = await choferRepository.ListarChoferes();
@@ -28,5 +30,12 @@ namespace Emtrafesa.GestionPersonal.Application.Implementacion
             var choferDto = mapper.Map<ChoferDetalleDto>(chofer);
             return choferDto;
         }
+
+        public async Task InsertarChofer(ChoferCreacionDto choferCreacionDto)
+        {
+            var chofer = mapper.Map<Chofer>(choferCreacionDto);
+            await choferRepository.InsertarChofer(chofer);
+        }
+
     }
 }

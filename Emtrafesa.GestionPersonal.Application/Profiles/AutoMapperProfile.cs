@@ -10,6 +10,7 @@ namespace Emtrafesa.GestionPersonal.Application.Profiles
         {
             CreateMap<Chofer, ChoferDto>();
             CreateMap<Chofer, ChoferDetalleDto>();
+            CreateMap<ChoferCreacionDto, Chofer>();
         }
     }
 }

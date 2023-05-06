@@ -32,6 +32,13 @@ namespace Emtrafesa.GestionPersonal.API.Controllers
                 return NotFound("$ No se encontro el ID {id}");
             }
             return chofer;
-        } 
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> InsertarChofer(ChoferCreacionDto choferCreacionDto)
+        {
+            await choferApplication.InsertarChofer(choferCreacionDto);
+            return Ok();
+        }
     }
 }

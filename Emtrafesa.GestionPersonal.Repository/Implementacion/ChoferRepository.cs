@@ -12,6 +12,7 @@ namespace Emtrafesa.GestionPersonal.Repository.Implementacion
         {
             this.applicationDbContext = applicationDbContext;
         }
+
         public async Task<List<Chofer>> ListarChoferes()
         {
             var choferes = await applicationDbContext.Choferes.ToListAsync();
@@ -22,6 +23,12 @@ namespace Emtrafesa.GestionPersonal.Repository.Implementacion
         {
             var chofer = await applicationDbContext.Choferes.FirstOrDefaultAsync(x=> x.Id == id);
             return chofer;
+        }
+
+        public async Task InsertarChofer(Chofer chofer)
+        {
+            applicationDbContext.Choferes.Add(chofer);
+            await applicationDbContext.SaveChangesAsync();
         }
     }
 }
