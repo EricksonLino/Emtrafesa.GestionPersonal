@@ -23,5 +23,15 @@ namespace Emtrafesa.GestionPersonal.API.Controllers
             return choferes;
         }
 
+        [HttpGet("{id}")]
+        public async Task<ActionResult<ChoferDetalleDto>> ObtenerChofer(int id)
+        {
+            var chofer = await choferApplication.ObtenerChofer(id);
+            if (chofer == null)
+            {
+                return NotFound("$ No se encontro el ID {id}");
+            }
+            return chofer;
+        } 
     }
 }

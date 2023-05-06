@@ -17,5 +17,11 @@ namespace Emtrafesa.GestionPersonal.Repository.Implementacion
             var choferes = await applicationDbContext.Choferes.ToListAsync();
             return choferes;
         }
+
+        public async Task<Chofer> ObtenerChofer(int id)
+        {
+            var chofer = await applicationDbContext.Choferes.FirstOrDefaultAsync(x=> x.Id == id);
+            return chofer;
+        }
     }
 }

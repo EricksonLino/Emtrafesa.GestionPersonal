@@ -10,5 +10,6 @@ namespace Emtrafesa.GestionPersonal.Repository.Interfaces
     public interface IChoferRepository
     {
         Task<List<Chofer>> ListarChoferes();
+        Task<Chofer> ObtenerChofer(int id);
     }
 }

@@ -21,5 +21,12 @@ namespace Emtrafesa.GestionPersonal.Application.Implementacion
             var choferDto = mapper.Map<List<ChoferDto>>(choferes);
             return choferDto;
         }
+
+        public async Task<ChoferDetalleDto> ObtenerChofer(int id)
+        {
+            var chofer = await choferRepository.ObtenerChofer(id);
+            var choferDto = mapper.Map<ChoferDetalleDto>(chofer);
+            return choferDto;
+        }
     }
 }

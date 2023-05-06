@@ -9,6 +9,7 @@ namespace Emtrafesa.GestionPersonal.Application.Profiles
         public AutoMapperProfile()
         {
             CreateMap<Chofer, ChoferDto>();
+            CreateMap<Chofer, ChoferDetalleDto>();
         }
     }
 }
